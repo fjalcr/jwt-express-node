@@ -5,6 +5,7 @@ const router: Router = Router();
 
 router.post('/signup', signup);
 router.post('/signin', signin);
+//need token to access
 router.get('/profile', VerifyToken, profile);
 
 export default router;

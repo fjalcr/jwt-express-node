@@ -2,7 +2,7 @@ import {Schema, model, Document} from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 export interface IUser extends Document{
-    username: string,
+    name: string,
     email: string,
     password: string,
     encrypPassword(password: string ): Promise<string>,
@@ -10,7 +10,7 @@ export interface IUser extends Document{
 }
 
 const userSchema = new Schema({
-    username: {type: String, required: true, unique: true, min: 4, lowercase: true, trim: true},
+    name: {type: String, required: true, min: 8, lowercase: true, trim: true},
     email: {type: String, required: true, unique: true, trim: true, lowercase: true},
     password: {type: String, required: true, trim: true}
 })
